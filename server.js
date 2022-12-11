@@ -5,6 +5,9 @@ const path = require("path");
 const uuid = require("./helpers/uuid");
 const app = express();
 const PORT = 3002;
+
+// const router = require("./notes")
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -22,17 +25,34 @@ app.get("*", (req, res) => {
 /*api routes*/
 
 // line 59 of readme/criteria
-app.get("./api/notes", (req, res) => {
-  fs.readFile("./db/db.json", "utf8", (err, data) => {
-    if (err) {
-      console.error(err);
-    } else {
-      // Convert string into JSON object
-      return res.json(path.join(__dirname, "public/notes.html"))
-    }
-  });
+const router = require("express").Router();
+
+router.get("/notes", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
 
+const result = findById(req.params.id, notes);
+if (result) {
+  res.json(result);
+} else {
+  res.sendStatus(404);
+}
+
+router.get("/notes", (req, res) => {
+  let results = notes;
+  res.json(results);
+});
+
+// app.get("./api/notes", (req, res) => {
+//   fs.readFile("./db/db.json", "utf8", (err, data) => {
+//     if (err) {
+//       console.error(err);
+//     } else {
+//       // Convert string into JSON object
+//       return res.json(path.join(__dirname, "public/notes.html"))
+//     }
+//   });
+// });
 
 // line 61? of readme/criteria // successfully updating db.json now
 app.post("/api/notes", (req, res) => {
@@ -47,7 +67,7 @@ app.post("/api/notes", (req, res) => {
     const newNote = {
       title,
       text,
-      review_id: uuid(), //pulled in helper function from act. 20 
+      review_id: uuid(), //pulled in helper function from act. 20
     };
 
     fs.readFile("./db/db.json", "utf8", (err, data) => {
