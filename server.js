@@ -5,9 +5,9 @@ const path = require("path");
 const uuid = require("./helpers/uuid");
 const app = express();
 const PORT = 3002;
-
+const api = require('./db/db.json')
 // const router = require("./notes")
-
+// const router = require("express").Router();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -17,44 +17,35 @@ app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
-// line 55 of readme/criteria
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
-});
 
 /*api routes*/
 
 // line 59 of readme/criteria
-const router = require("express").Router();
 
-router.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/notes.html"));
-});
 
-const result = findById(req.params.id, notes);
-if (result) {
-  res.json(result);
-} else {
-  res.sendStatus(404);
-}
-
-router.get("/notes", (req, res) => {
-  let results = notes;
-  res.json(results);
-});
-
-// app.get("./api/notes", (req, res) => {
-//   fs.readFile("./db/db.json", "utf8", (err, data) => {
-//     if (err) {
-//       console.error(err);
-//     } else {
-//       // Convert string into JSON object
-//       return res.json(path.join(__dirname, "public/notes.html"))
-//     }
-//   });
+// app.get("/api/notes", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../public/notes.html"));
 // });
 
-// line 61? of readme/criteria // successfully updating db.json now
+// const result = findById(req.params.id, notes);
+// if (result) {
+//   res.json(result);
+// } else {
+//   res.sendStatus(404);
+// }
+
+// app.get("/api/notes", (req, res) => {
+//   console.log("line 38 returned")
+//   let results = res.json(path.join(__dirname, "./db/db.json"));
+//   res.json(results);
+// });
+
+app.get("/api/notes", (req, res) => {
+  console.info(`${req.method} request received to get reviews`);
+  return res.status(200).json(api)
+});
+
+/* line 61? of readme/criteria // successfully updating db.json now */
 app.post("/api/notes", (req, res) => {
   console.info(`${req.method} request received to add a Note/Task`);
 
@@ -102,3 +93,7 @@ app.post("/api/notes", (req, res) => {
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/index.html"));
+});

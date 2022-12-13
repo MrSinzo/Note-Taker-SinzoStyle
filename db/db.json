@@ -4,34 +4,13 @@
         "text": "Test text"
     },
     {
-        "title": "asdasd",
-        "text": "asdad"
-    },
-    {
-        "title": "Sample note Title",
-        "text": "Sample note filler text"
-    },
-    {
-        "title": "Jumbo",
-        "text": "Mumbo"
-    },
-    {
-        "title": "asdasdad",
-        "text": "asdasdasd"
-    },
-    {
-        "title": "fasfwrrrr",
-        "text": "asdasdasd",
+        "title": "Smaple Note",
+        "text": "Sample Note Text",
         "review_id": "9cfb"
     },
     {
-        "title": "Sample 2 Title",
-        "text": "Sample note filler text",
-        "review_id": "05c9"
-    },
-    {
-        "title": "Sample note",
-        "text": "Sample note text",
-        "review_id": "9953"
+        "title": "Note",
+        "text": "Displa",
+        "review_id": "4dfa"
     }
 ]
