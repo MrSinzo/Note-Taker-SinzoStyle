@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const uuid = require("./helpers/uuid");
 const apiDb = require("./db/db.json");
-const { parse } = require("path");
+const { parse } = require("path"); // no idea where this came from, literally appeared in the file out of thin air
 const PORT = process.env.PORT || 3002;
 const app = express();
 app.use(express.json());
@@ -21,7 +21,7 @@ app.get("/notes", (req, res) => {
 // line 59 of readme/criteria
 /**GET ***** original set up?*/
 app.get("/api/notes", (req, res) => {
-  console.info(`${req.method} line 23 request received to get Notes`)
+  console.info(`${req.method} line 23 request received to get Notes`);
   return res.json(apiDb);
 });
 
@@ -31,9 +31,9 @@ app.get("/api/notes", (req, res) => {
 
   // Destructuring assignment for the items in req.body
   const { title, text } = req.body;
-  console.log("line 32")
-  console.log(title)
-  console.log(text)
+  console.log("line 32");
+  console.log(title);
+  console.log(text);
   // If all the required properties are present
   if (title && text) {
     // Variable for the object we will save
@@ -96,7 +96,6 @@ app.post("/api/notes", (req, res) => {
     };
 
     fs.readFile("./db/db.json", "utf8", (err, data) => {
-
       if (err) {
         console.error(err);
       } else {
@@ -105,12 +104,12 @@ app.post("/api/notes", (req, res) => {
           JSON.parse(
             data
           ); /** we tell the app we want to put the parsed json file into a variable */
-          console.log("line 107");
-          console.log(parsedDb); //checking unmodified data
-          console.log(newNote); //checking what was inputted 
-          parsedDb.push(newNote); /**we push the new note to the file */
-          console.log("line 111")
-          console.log(parsedDb) // checking to see if data was modified 
+        console.log("line 107");
+        console.log(parsedDb); //checking unmodified data
+        console.log(newNote); //checking what was inputted
+        parsedDb.push(newNote); /**we push the new note to the file */
+        console.log("line 111");
+        console.log(parsedDb); // checking to see if data was modified
         fs.writeFile(
           "./db/db.json",
           JSON.stringify(parsedDb, null, 4),
@@ -127,7 +126,7 @@ app.post("/api/notes", (req, res) => {
       status: "success",
       body: newNote,
     };
-    console.log( "line 123")
+    console.log("line 123");
     console.log(response);
     res.status(201).json(response);
   } else {
