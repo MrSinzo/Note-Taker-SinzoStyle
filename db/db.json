@@ -1,46 +1,17 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
+        "title": "Finally!!!!",
+        "text": "got it working!!!!",
+        "id": "46df"
     },
     {
-        "title": "Note 2",
-        "text": "222",
-        "review_id": "be7e"
+        "title": "next note?",
+        "text": "A bunch of filler text to get me going!",
+        "id": "7e31"
     },
     {
-        "title": "note 3",
-        "text": "3",
-        "review_id": "1ec3"
-    },
-    {
-        "title": "Note 4",
-        "text": "Note 4",
-        "review_id": "360b"
-    },
-    {
-        "title": "Note 5",
-        "text": "Note 5",
-        "review_id": "6af9"
-    },
-    {
-        "title": "note 6",
-        "text": "6",
-        "review_id": "24e6"
-    },
-    {
-        "title": "nopte 7",
-        "text": "7",
-        "review_id": "6a73"
-    },
-    {
-        "title": "note 8 ",
-        "text": "8",
-        "review_id": "7ea4"
-    },
-    {
-        "title": "note 9 ",
-        "text": "9",
-        "review_id": "ac78"
+        "title": "Get this deployed to Heroku!",
+        "text": "https://coding-boot-camp.github.io/full-stack/heroku/heroku-deployment-guide",
+        "id": "034a"
     }
 ]
