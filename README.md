@@ -25,7 +25,7 @@ I wanted a simple application that would be able to keep consistent notes for ta
 This application was built with express.js, Javascript and some html/css. The application will also be deployed on Heroku!
 
 ## Screenshot of working application and URL link
-![ScreenShot of Deployed Application](Screenshot_20221213_062038/) 
+![ScreenShot of Deployed Application](Screenshot_20221213_062038.png/) 
 
 Deployed Website Link [Click Here!](https://note-taker-sinzo-style.herokuapp.com//)
 
