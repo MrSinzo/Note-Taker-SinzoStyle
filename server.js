@@ -75,7 +75,7 @@ app.post("/api/notes", (req, res) => {
         console.log(parsedDb);
       }
     });
-    // no idea what this const response is doing here
+    // no idea what this const response is doing here // const response is an object with the status key of success and holds the response data in the body field
     const response = { 
       status: "success",
       body: newNote,
